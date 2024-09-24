@@ -35,6 +35,26 @@ export async function addNewContact(payload) {
 }
 
 export async function updateContactInfo(payload) {
+  const res = await getAllContactsData();
+  const data = res?.data?.data;
+
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].full_name === payload.data.full_name) {
+      alert("Data nama sudah ada di database");
+      return;
+    }
+
+    if (data[i].phone_number === payload.data.phone_number) {
+      alert("Data nomor sudah ada di database");
+      return;
+    }
+
+    if (data[i].email === payload.data.email) {
+      alert("Data email sudah ada di database");
+      return;
+    }
+  }
+
   return await axios
     .put(`${BASE_URL}/contacts/${payload.id}`, payload.data)
     .catch((error) => {
