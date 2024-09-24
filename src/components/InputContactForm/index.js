@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { addNewContact, updateContactInfo } from "../../services";
+import { addNewContact, getAllContactsData, updateContactInfo } from "../../services";
 import "./style.css";
 
 const InputContactForm = (props) => {
@@ -7,6 +7,7 @@ const InputContactForm = (props) => {
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
+  const [contactsData, setContactsData] = useState([]);
 
   const regexPhoneNumber = /^[0-9]*$/;
   const regexEmail = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
