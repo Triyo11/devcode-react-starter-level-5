@@ -53,7 +53,7 @@ const InputContactForm = (props) => {
     setEmail("");
   };
 
-  const allowSubmit = (fullName || phoneNumber || email);
+  const allowSubmit = (fullName && phoneNumber && email);
 
   useEffect(() => {
     setId(selectedContact?.id);
